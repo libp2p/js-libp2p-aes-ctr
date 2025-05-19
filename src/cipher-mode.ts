@@ -1,4 +1,4 @@
-import { CodeError } from '@libp2p/interface'
+import { InvalidKeyLengthError } from './errors.js'
 
 const CIPHER_MODES = {
   16: 'aes-128-ctr',
@@ -11,5 +11,5 @@ export function cipherMode (key: Uint8Array): string {
   }
 
   const modes = Object.entries(CIPHER_MODES).map(([k, v]) => `${k} (${v})`).join(' / ')
-  throw new CodeError(`Invalid key length ${key.length} bytes. Must be ${modes}`, 'ERR_INVALID_KEY_LENGTH')
+  throw new InvalidKeyLengthError(`Invalid key length ${key.length} bytes. Must be ${modes}`)
 }
