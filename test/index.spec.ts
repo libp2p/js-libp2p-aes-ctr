@@ -90,7 +90,7 @@ describe('AES-CTR', () => {
   it('checks key length', () => {
     const key = new Uint8Array(5)
     const iv = new Uint8Array(16)
-    return expect(() => aes.create(key, iv)).to.throw().with.property('code', 'ERR_INVALID_KEY_LENGTH')
+    return expect(() => aes.create(key, iv)).to.throw().with.property('name', 'InvalidKeyLengthError')
   })
 })
 
